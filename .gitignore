@@ -25,3 +25,6 @@ fine-*.tar
 *.beam
 
 .elixir_ls
+
+config/config.exs
+config/config.exs

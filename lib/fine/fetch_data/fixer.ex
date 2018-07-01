@@ -1,5 +1,5 @@
 defmodule Fine.FetchData.Fixer do
-  @fix_api_base "http://data.fixer.io/api/"
+  @fix_api_base "http://data.fixer.io/api/latest"
 
   def fetch do
 
