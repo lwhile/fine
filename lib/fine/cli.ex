@@ -2,13 +2,13 @@ defmodule Fine.Cli do
 
   def parse_argv(argv) do
     parse = OptionParser.parse(argv, [switches: [help: :boolean], aliases: [h: :help]])
-    IO.inspect parse
+    # IO.inspect parse
     case parse do
       { [help: true], _ , _ }
       -> :help
 
       { [base: base, target: target], _, _}
-      -> process(base, target)
+      -> {base, target}
     end
   end
 
@@ -18,8 +18,9 @@ defmodule Fine.Cli do
     """
   end
 
-  def process(base, target) do
-    Fine.FetchData.Fixer.fetch(base, target)
+  def process({base, target}) do
+    rate = Fine.FetchData.CurrConverter.fetch(base, target)
+    IO.puts "1 #{base} can exchange #{rate} #{target}"
   end
 
   def main(argv \\ []) do
